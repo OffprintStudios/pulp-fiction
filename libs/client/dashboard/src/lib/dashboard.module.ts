@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxsModule } from '@ngxs/store';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AlertsModule } from '@dragonfish/client/alerts';
 import { IconsModule } from '@dragonfish/client/icons';
@@ -21,9 +23,11 @@ import { GroupQueueComponent } from './pages/group-queue';
 import { OverviewComponent } from './pages/overview';
 import { ReportsComponent } from './pages/reports';
 import { UsersManagementComponent } from './pages/users-management';
+import { TagsManagementComponent } from './pages/tags-management/tags-management.component';
 
 /* Components */
 import { ApprovalQueueToolbarComponent, ContentPreviewComponent } from './components/approval-queue';
+import { TagFormComponent, ChildTagFormComponent, ChildTagItemComponent } from './components/tags-management';
 
 @NgModule({
     declarations: [
@@ -39,6 +43,10 @@ import { ApprovalQueueToolbarComponent, ContentPreviewComponent } from './compon
         UsersManagementComponent,
         ApprovalQueueToolbarComponent,
         ContentPreviewComponent,
+        TagsManagementComponent,
+        TagFormComponent,
+        ChildTagFormComponent,
+        ChildTagItemComponent,
     ],
     imports: [
         CommonModule,
@@ -49,6 +57,8 @@ import { ApprovalQueueToolbarComponent, ContentPreviewComponent } from './compon
         UiModule,
         NgxPaginationModule,
         PipesModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
 })
 export class DashboardModule {}

@@ -14,6 +14,7 @@ import { GroupQueueComponent } from './pages/group-queue';
 import { OverviewComponent } from './pages/overview';
 import { ReportsComponent } from './pages/reports';
 import { UsersManagementComponent } from './pages/users-management';
+import { TagsManagementComponent } from './pages/tags-management/tags-management.component';
 
 /* Util */
 import { ApprovalQueueResolver, ApproveContentResolver } from './resolvers/approval-queue';
@@ -96,6 +97,12 @@ const routes: Routes = [
             {
                 path: 'audit-log',
                 component: AuditLogComponent,
+                canActivate: [AuthGuard],
+                data: { roles: [Roles.Moderator, Roles.Admin] },
+            },
+            {
+                path: 'tags',
+                component: TagsManagementComponent,
                 canActivate: [AuthGuard],
                 data: { roles: [Roles.Moderator, Roles.Admin] },
             },
